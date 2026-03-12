@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: genai-rag
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: genai-rag
+  template:
+    metadata:
+      labels:
+        app: genai-rag
+    spec:
+      containers:
+      - name: genai-rag
+        image: genai-rag:latest
+        ports:
+        - containerPort: 8000
